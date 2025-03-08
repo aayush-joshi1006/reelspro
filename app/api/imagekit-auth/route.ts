@@ -11,7 +11,7 @@ export async function GET() {
   try {
     const authParams = imagekit.getAuthenticationParameters();
     return NextResponse.json(authParams);
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { error: "Imagekit auth failed" },
       { status: 500 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageKitProvider, IKImage } from "imagekitio-next";
+import { ImageKitProvider } from "imagekitio-next";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
 
@@ -22,7 +22,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       const data = await response.json();
       const { signature, expire, token } = data;
       return { signature, expire, token };
-    } catch (error) {
+    } catch (_error) {
       
 
       throw new Error(`Imagekit Authentication request failed `);

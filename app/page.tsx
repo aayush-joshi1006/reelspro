@@ -115,7 +115,7 @@ export default function Home() {
       try {
         const data = await apiClient.getVideos();
         setVideos(data);
-      } catch (error) {
+      } catch (_error) {
         throw new Error("Error fetching videos");
       }
     };
