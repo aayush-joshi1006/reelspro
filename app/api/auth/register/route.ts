@@ -7,17 +7,20 @@ export async function POST(request: NextRequest) {
     const { email, password } = await request.json();
 
     if (!email || !password) {
-     return NextResponse.json(
+      return NextResponse.json(
         { error: "email and password are required" },
         { status: 400 }
       );
     }
 
     await connectToDatabase();
-    
+
     const user = await User.findOne({ email });
     if (user) {
-     return NextResponse.json({ error: "email already registered" }, { status: 400 });
+      return NextResponse.json(
+        { error: "email already registered" },
+        { status: 400 }
+      );
     }
 
     await User.create({
@@ -29,7 +32,7 @@ export async function POST(request: NextRequest) {
       { message: "user registered successfully" },
       { status: 201 }
     );
-  } catch (_error) {
+  } catch (_error: unknown) {
     return NextResponse.json({ error: "user not registered" }, { status: 500 });
   }
 }

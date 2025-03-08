@@ -22,9 +22,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       const data = await response.json();
       const { signature, expire, token } = data;
       return { signature, expire, token };
-    } catch (_error) {
-      
-
+    } catch (_error: unknown) {
       throw new Error(`Imagekit Authentication request failed `);
     }
   };
