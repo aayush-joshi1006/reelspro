@@ -23,6 +23,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       const { signature, expire, token } = data;
       return { signature, expire, token };
     } catch (_error: unknown) {
+      console.error("Error in API:", _error); 
       throw new Error(`Imagekit Authentication request failed `);
     }
   };

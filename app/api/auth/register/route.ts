@@ -33,6 +33,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (_error: unknown) {
+    console.error("Error in API:", _error); 
     return NextResponse.json({ error: "user not registered" }, { status: 500 });
   }
 }
