@@ -37,18 +37,6 @@ const videoSchema = new Schema<IVideo>(
   { timestamps: true }
 );
 
-// videoSchema.pre("save", function (next) {
-//   if (this.transformation) {
-//     this.transformation.width = VIDEO_DIMENSIONS.width;
-//     this.transformation.height = VIDEO_DIMENSIONS.height;
-//   } else {
-//     this.transformation = {
-//       width: VIDEO_DIMENSIONS.width,
-//       height: VIDEO_DIMENSIONS.height,
-//     };
-//   }
-//   next();
-// });
 
 const Video = models?.Video || model<IVideo>("Video", videoSchema);
 
